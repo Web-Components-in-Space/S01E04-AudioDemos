@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pitch Detection</title>
+    <script type="module">
+        import {VoxController} from './pitch-detection-demo.js';
+
+        VoxController.addListener((event) => {
+            if (event.type === 'down') {
+                document.getElementById('note-singing').innerText = event.note;
+            }
+        });
+
+        const renderVisualization = (ctx, canvas) => {
+            requestAnimationFrame(() => {
+                renderVisualization(ctx, canvas);
+            });
+            VoxController.visualize(ctx, canvas.width, canvas.height);
+        }
+
+        document.body.querySelector('button').addEventListener('click', () => {
+            VoxController.startMicrophone();
+            const canvas = document.body.querySelector('canvas');
+            const ctx = canvas.getContext('2d');
+            renderVisualization(ctx, canvas);
+        });
+    </script>
+</head>
+<body>
+    <button>Start Microphone</button>
+    <span>Note:<span id="note-singing"></span></span>
+    <canvas width="500" height="250"></canvas>
+</body>
+</html>

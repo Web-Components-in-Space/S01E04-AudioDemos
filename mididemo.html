@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Midi Demo</title>
+    <!-- This extra script tag is redundant in my video. Oops!
+    Really you just need import {MidiController} from './midi.js' to use this -->
+    <script type="module" src="midi.js"></script>
+    <script type="module">
+        import {MidiController} from './midi.js';
+
+        MidiController.refreshConnection();
+        MidiController.addListener(e => {
+            console.log(e.type, e.note, e.octave);
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

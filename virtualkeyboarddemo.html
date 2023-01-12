@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual Keyboard</title>
+</head>
+<body>
+    <piano-keys layout="C" keys=61></piano-keys>
+    <script type="module">
+        import 'piano-keys-webcomponent-v0';
+        import { Synth } from './tonejs-demo.js';
+
+        document.body.querySelector('piano-keys').addEventListener('note-down', e => {
+            Synth.pressAndRelease(e.detail.note, e.detail.octave, '8n');
+        })
+    </script>
+</body>
+</html>

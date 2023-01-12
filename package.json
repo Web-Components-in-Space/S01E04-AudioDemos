@@ -1,0 +1,16 @@
+{
+  "name": "audioexploration",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "piano-keys-webcomponent-v0": "^1.0.3",
+    "tone": "^14.7.77",
+    "lit": "^2.5.0"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.1.29"
+  },
+  "scripts": {
+    "serve": "./node_modules/.bin/wds --node-resolve --open=./lit-app.html --watch"
+  }
+}

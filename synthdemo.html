@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Synth Demo</title>
+    <script type="module">
+        import { Synth } from './tonejs-demo.js';
+
+        Synth.addListener((event) => {
+            console.log(event)
+        })
+
+        document.getElementById('play-sound').addEventListener('click', () => {
+            Synth.pressAndRelease('Bb', 4, '8n');
+        });
+
+        document.getElementById('toggle-metronome').addEventListener('click', () => {
+            Synth.toggleMetronome();
+        });
+
+        document.body.querySelector('input').addEventListener('change', e => {
+            Synth.BPM = Number(e.target.value);
+        });
+
+    </script>
+</head>
+<body>
+    <button id="toggle-metronome">Start/Stop Metronome</button>
+    <input type="number" value="60" step="1" />
+
+    <button id="play-sound">Play Sound</button>
+</body>
+</html>
